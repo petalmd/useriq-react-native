@@ -1,0 +1,5 @@
+rootProject.name = 'example'
+include ':useriq-react-native'
+project(':useriq-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/useriq-react-native/android')
+
+include ':app'
