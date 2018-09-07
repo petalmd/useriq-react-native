@@ -43,4 +43,5 @@ local.properties
 buck-out/
 \.buckd/
 *.keystore
-      
+**/libs/**/*.aar
+**/libs/**/*.jar
