@@ -36,9 +36,64 @@
 
 ## Usage
 
+### 1. Initialization
+
+Initialize `UserIQ` sdk as eary as possible. `UserIQ.init()` method needs to be called atleast once after the root component / application is mounted
+
 ```javascript
+import React from 'react';
 import UserIQ from 'useriq-react-native'
 
-// TODO: What to do with the module?
-UserIQ
+export class App extends React.Component {
+
+  componentDidMount() {
+    UserIQ.init('API_KEY')
+  }
+  ...
+}
+```
+
+### 1a. Initialize for multiple platforms
+
+If you have single code base for both iOS & Android & if you want to initialize SDK for both platforms, you can initialze using `Platform.select`. If not skip to step 2.
+
+```javascript
+import React from 'react';
+import { Platform } from 'react-native';
+import UserIQ from 'useriq-react-native'
+
+export class App extends React.Component {
+
+  componentDidMount() {
+    Platform.select({
+      ios: () => UserIQ.init('IOS_API_KEY'),
+      android: () => UserIQ.init('ANDROID_API_KEY'),
+    })()
+  }
+  ...
+}
+```
+
+This will automatically choose the right `api_key` for the appropriate platform & initialize it.
+
+### 2. Set loggedin user
+
+SDK initialization itself doesnt send any data to UserIQ server until `setUser()` is called. So after user is sucessfully logged in, call `setUser()` with required params.
+
+```javascript
+import React from 'react'
+import UserIQ from 'useriq-react-native'
+
+class LoginComponent extends React.Component {
+  onLoginSuccess(user) {
+    UserIQ.setUser({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      accountId: user.accountId,
+      accountName: user.accountName,
+      signUpDate: user.signUpDate,
+    })
+  }
+}
 ```
