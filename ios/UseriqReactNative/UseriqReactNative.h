@@ -7,5 +7,7 @@
 
 @interface UseriqReactNative : NSObject <RCTBridgeModule>
 
+@property (nonatomic) NSString *apiKey;
+
 @end
   
