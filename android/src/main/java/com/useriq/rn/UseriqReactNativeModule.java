@@ -9,6 +9,11 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
+import com.facebook.react.uimanager.UIManagerModule;
+import com.facebook.react.uimanager.events.Event;
+import com.facebook.react.uimanager.events.EventDispatcher;
+import com.facebook.react.uimanager.events.EventDispatcherListener;
+import com.facebook.react.uimanager.events.TouchEvent;
 import com.useriq.sdk.UserIQSDK;
 import com.useriq.sdk.UserIQSDKInternal;
 
@@ -39,15 +44,32 @@ public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
         @Override public void onHostDestroy() { }
     };
 
+    private final EventDispatcherListener eventDispatcherListener = new EventDispatcherListener() {
+        @Override
+        public void onEventDispatch(Event event) {
+            UserIQSDKInternal sdkInternal = UserIQSDKInternal.getInstance();
+            if(sdkInternal != null) {
+                int viewTag = event.getViewTag();
+                String eventName = event.getEventName();
+                sdkInternal.onReactEvent(eventName, viewTag);
+            }
+        }
+    };
+
     public UseriqReactNativeModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
         reactContext.addLifecycleEventListener(rnLifecycleListener);
+
+        reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
+                .addListener(eventDispatcherListener);
     }
 
     @Override
     public void onCatalystInstanceDestroy() {
         this.reactContext.removeLifecycleEventListener(rnLifecycleListener);
+        reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
+                .removeListener(eventDispatcherListener);
     }
 
     @Override
