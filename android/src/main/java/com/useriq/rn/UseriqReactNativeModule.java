@@ -1,6 +1,8 @@
 
 package com.useriq.rn;
 
+import android.util.Log;
+
 import com.facebook.react.bridge.LifecycleEventListener;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -11,9 +13,6 @@ import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
 import com.facebook.react.uimanager.UIManagerModule;
 import com.facebook.react.uimanager.events.Event;
-import com.facebook.react.uimanager.events.EventDispatcher;
-import com.facebook.react.uimanager.events.EventDispatcherListener;
-import com.facebook.react.uimanager.events.TouchEvent;
 import com.useriq.sdk.UserIQSDK;
 import com.useriq.sdk.UserIQSDKInternal;
 
@@ -24,6 +23,7 @@ import java.util.Map;
 
 public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
 
+    private static final String TAG = "UseriqRNModule";
     private final ReactApplicationContext reactContext;
 
     private final LifecycleEventListener rnLifecycleListener = new LifecycleEventListener() {
@@ -83,7 +83,14 @@ public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void setHost(String host) {
+        Log.d(TAG, "setHost: " + host);
+        UserIQSDK.setHost(host);
+    }
+
+    @ReactMethod
     public void setUser(ReadableMap readableMap) {
+        Log.d(TAG, "setUser: " + readableMap.toString());
         UserIQSDK.UserBuilder userBuilder = new UserIQSDK.UserBuilder();
 
         HashMap<String, Object> map = convertReadableMapToHashMap(readableMap);
