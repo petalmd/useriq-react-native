@@ -30,6 +30,10 @@ public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
     private final LifecycleEventListener rnLifecycleListener = new LifecycleEventListener() {
         @Override
         public void onHostResume() {
+            reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
+                    .addListener(eventDispatcherListener);
+
+
             UserIQSDKInternal sdkInternal = UserIQSDKInternal.getInstance();
             if(sdkInternal != null)
                 sdkInternal.onReactNativeResume();
@@ -37,6 +41,9 @@ public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
 
         @Override
         public void onHostPause() {
+            reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
+                    .removeListener(eventDispatcherListener);
+
             UserIQSDKInternal sdkInternal = UserIQSDKInternal.getInstance();
             if(sdkInternal != null)
                 sdkInternal.onReactNativePause();
@@ -61,16 +68,11 @@ public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
         super(reactContext);
         this.reactContext = reactContext;
         reactContext.addLifecycleEventListener(rnLifecycleListener);
-
-        reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
-                .addListener(eventDispatcherListener);
     }
 
     @Override
     public void onCatalystInstanceDestroy() {
         this.reactContext.removeLifecycleEventListener(rnLifecycleListener);
-        reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
-                .removeListener(eventDispatcherListener);
     }
 
     @Override
