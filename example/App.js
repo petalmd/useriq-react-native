@@ -10,6 +10,8 @@ export class App extends React.Component {
       ios: () => UserIQ.init('IOS_API_KEY'),
     })()
 
+    UserIQ.setHost("dev-mobile.useriq.com/sdk");
+
     UserIQ.setUser({
       id: "101",
       name: "Test User",
