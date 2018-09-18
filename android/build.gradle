@@ -44,7 +44,6 @@ repositories {
 dependencies {
     implementation 'com.facebook.react:react-native:+'
     implementation 'com.useriq:sdk:1.0.4'
-    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 }
 
 def configureReactNativePom(def pom) {
