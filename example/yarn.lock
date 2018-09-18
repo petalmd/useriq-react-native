@@ -5054,7 +5054,7 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
 
-"useriq-react-native@file:../":
+"useriq-react-native@file:..":
   version "1.0.0"
 
 util-deprecate@~1.0.1:
