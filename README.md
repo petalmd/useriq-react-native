@@ -97,3 +97,49 @@ class LoginComponent extends React.Component {
   }
 }
 ```
+
+## Misc
+
+### Disable Fab
+Floating Action Button (FAB) can be permanently disabled by calling the `disableFAB()` from the sdk. 
+
+```java
+UserIQSDK.disableFAB();
+```
+This can be called anytime before or after initializing the SDK. Once invoked, it will hide the FAB & also
+overrides the enableFAB sent from the dashboard. (ie) if this method is called on the SDK, this will take precendence over
+configuration from dashboard!
+
+### Show Helpcenter
+
+Helpcenter can be programatically invoked by calling `UserIQSDK.showHelpCenter()`
+
+```java
+boolean isHelpCenterShown = UserIQSDK.showHelpCenter();
+```
+
+When Modal window or popup is active, helpcenter can't be shown. In those cases, above API will return `false`
+
+### Show Contextual help
+Contextual help can be shown by calling `UserIQSDK.showCtxHelp()`
+
+```java
+boolean isCtxHelpShown = UserIQSDK.showCtxHelp();
+```
+
+Contextual help will only be shown when the current screen is tagged. If the current screen is not tagged then the above API will return `false`
+
+#### InApp-Notification
+![](images/inapp-default.gif)
+
+#### NPS
+![](images/nps.gif)
+
+#### StarRating
+![](images/star.gif)
+
+#### Contexual Help
+![](images/ctxHelp.gif)
+
+#### HelpCentre
+![](images/helpcenter.gif)
