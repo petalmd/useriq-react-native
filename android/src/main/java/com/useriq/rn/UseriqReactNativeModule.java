@@ -174,4 +174,19 @@ public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
         return deconstructedList;
     }
 
+    @ReactMethod
+    public void disableFAB() {
+        UserIQSDK.disableFAB();
+    }
+
+    @ReactMethod
+    public boolean showCtxHelp() {
+        return UserIQSDK.showCtxHelp();
+    }
+
+    @ReactMethod
+    public boolean showHelpCentre() {
+        return UserIQSDK.showHelpCentre();
+    }
+
 }
