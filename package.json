@@ -30,5 +30,8 @@
   "devDependencies": {
     "react": "^16.0.0",
     "react-native": "^0.57.0"
+  },
+  "dependencies": {
+    "merge": "^1.2.1"
   }
 }
