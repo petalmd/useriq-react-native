@@ -44,5 +44,17 @@ RCT_EXPORT_METHOD(setUser:(NSString *)userId
     resolve(@"successful UserIQ SDK setUser Successful");
 }
 
+RCT_EXPORT_METHOD(disableFAB) {
+    [[UserIQSDK sharedInstance] disableFAB];
+}
+
+RCT_EXPORT_METHOD(showCtxHelp){
+    return [[UserIQSDK sharedInstance] showCtxHelp];
+}
+
+RCT_EXPORT_METHOD(showHelpCentre){
+    [[UserIQSDK sharedInstance] showHelpCentre];
+}
+
 @end
   
