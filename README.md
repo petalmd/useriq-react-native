@@ -2,7 +2,7 @@
 
 ## Getting started
 
-`$ npm install useriq-react-native --save`
+`$ npm install git+https://git@github.com/useriq-com/useriq-react-native.git --save
 
 ### Mostly automatic installation
 
