@@ -2,6 +2,11 @@
 
 ## Getting started
 
+Go to the iOS folder and add `pod 'UserIQ'` to your `Podfile`.
+Add run `pod install` inside the folder. This will download the `UserIQ framework` via cocoapods.
+
+Go to back to the home folder in the command line and enter
+
 `$ npm install git+https://git@github.com/useriq-com/useriq-react-native.git --save`
 
 ### Mostly automatic installation
@@ -101,18 +106,20 @@ class LoginComponent extends React.Component {
 ## Misc
 
 ### Disable Fab
-Floating Action Button (FAB) can be permanently disabled by calling the `disableFAB()` from the sdk. 
+
+Floating Action Button (FAB) can be permanently disabled by calling the `disableFAB()` from the sdk.
 
 ```javascipt
 UserIQ.disableFAB();
 ```
+
 This can be called anytime before or after initializing the SDK. Once invoked, it will hide the FAB & also
 overrides the enableFAB sent from the dashboard. (ie) if this method is called on the SDK, this will take precendence over
 configuration from dashboard!
 
 ### Show Helpcenter
 
-Helpcenter can be programatically invoked by calling `UserIQ.showHelpCenter()` which returns promise
+Helpcenter can be programatically invoked by calling `UserIQ.showHelpCentre()` which returns promise
 
 ```javascipt
 UserIQ.showHelpCentre().then(function (status) {
@@ -123,6 +130,7 @@ UserIQ.showHelpCentre().then(function (status) {
 When Modal window or popup is active, helpcenter can't be shown. In those cases, above API will return a promise with "false"
 
 ### Show Contextual help
+
 Contextual help can be shown by calling `UserIQ.showCtxHelp()` which returns promise
 
 ```javascipt
@@ -134,16 +142,21 @@ UserIQ.showCtxHelp().then(function (status) {
 Contextual help will only be shown when the current screen is tagged. If the current screen is not tagged then the above API will return a promise with "false"
 
 #### InApp-Notification
+
 ![](images/inapp-default.gif)
 
 #### NPS
+
 ![](images/nps.gif)
 
 #### StarRating
+
 ![](images/star.gif)
 
 #### Contexual Help
+
 ![](images/ctxHelp.gif)
 
 #### HelpCentre
+
 ![](images/helpcenter.gif)
