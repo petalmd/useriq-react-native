@@ -2,7 +2,7 @@
 
 ## Getting started
 
-`$ npm install useriq-react-native --save`
+`$ npm install git+https://git@github.com/useriq-com/useriq-react-native.git --save`
 
 ### Mostly automatic installation
 
@@ -21,7 +21,7 @@
 
 1. Open up `android/app/src/main/java/[...]/MainApplication.java`
 
-- Add `import com.useriq.UseriqReactNativePackage;` to the imports at the top of the file
+- Add `import com.useriq.rn.UseriqReactNativePackage;` to the imports at the top of the file
 - Add `new UseriqReactNativePackage()` to the list returned by the `getPackages()` method
 
 2. Append the following lines to `android/settings.gradle`:

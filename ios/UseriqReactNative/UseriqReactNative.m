@@ -12,9 +12,7 @@
 
 RCT_EXPORT_MODULE(UseriqReactNative);
 
-RCT_EXPORT_METHOD(init:(NSString *)apiKey
-                  resolve:(RCTPromiseResolveBlock)resolve
-                  reject:(RCTPromiseRejectBlock)reject){
+RCT_EXPORT_METHOD(init:(NSString *)apiKey){
     self.apiKey = apiKey;
     RCTLogInfo(@"\n*****SDK initialized with apiKey: %@*****",apiKey);
     resolve(@"successful UserIQ SDK initialization");
@@ -26,10 +24,7 @@ RCT_EXPORT_METHOD(setUser:(NSString *)userId
                   accountId:(int)accId
                   accountName:(NSString *)accName
                   signupDate:(NSString *)signupDate
-                  andParameters:(NSDictionary *)parameters
-                  resolve:(RCTPromiseResolveBlock)resolve
-                  reject:(RCTPromiseRejectBlock)reject
-                  ) {
+                  andParameters:(NSDictionary *)parameters) {
     RCTLogInfo(@"\n*****SDK setUser is successful with apiKey: %@\nuserId: %@\nname: %@\nemail: %@\naccount Id: %d\naccount Name: %@\nsignup Date: %@\nparameters: %@*****",self.apiKey,userId,name,email,accId,accName,signupDate,parameters);
     NSString *apiKeyMissing = @"apiKey Missing";
     NSAssert((![self.apiKey isEqualToString:@""]&&self.apiKey), apiKeyMissing);
@@ -48,12 +43,17 @@ RCT_EXPORT_METHOD(disableFAB) {
     [[UserIQSDK sharedInstance] disableFAB];
 }
 
-RCT_EXPORT_METHOD(showCtxHelp){
-    return [[UserIQSDK sharedInstance] showCtxHelp];
+RCT_REMAP_METHOD(showCtxHelp, resolve:(RCTPromiseResolveBlock)resolve){
+    BOOL shown = [[UserIQSDK sharedInstance] showCtxHelp];
+    resolve([NSNumber numberWithBool:shown]);
 }
 
 RCT_EXPORT_METHOD(showHelpCentre){
     [[UserIQSDK sharedInstance] showHelpCentre];
+}
+
+RCT_EXPORT_METHOD(setHost:(NSString *)host) {
+    [[UserIQSDK sharedInstance] setHost:host];
 }
 
 @end
