@@ -4,6 +4,7 @@ package com.useriq.rn;
 import android.util.Log;
 
 import com.facebook.react.bridge.LifecycleEventListener;
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -180,13 +181,25 @@ public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public boolean showCtxHelp() {
-        return UserIQSDK.showCtxHelp();
+    public void showCtxHelp(final Promise promise) {
+        boolean status = UserIQSDK.showCtxHelp();
+        Log.d(TAG, "showCtxHelp: " + status);
+        if (status) {
+            promise.resolve("true");
+        } else {
+            promise.resolve("false");
+        }
     }
 
     @ReactMethod
-    public boolean showHelpCentre() {
-        return UserIQSDK.showHelpCentre();
+    public void showHelpCentre(final Promise promise) {
+        boolean status = UserIQSDK.showHelpCentre();
+        Log.d(TAG, "showHelpCentre: " + status);
+        if (status) {
+            promise.resolve("true");
+        } else {
+            promise.resolve("false");
+        }
     }
 
 }
