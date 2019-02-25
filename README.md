@@ -112,22 +112,22 @@ configuration from dashboard!
 
 ### Show Helpcenter
 
-Helpcenter can be programatically invoked by calling `UserIQSDK.showHelpCenter()`
+Helpcenter can be programatically invoked by calling `UserIQSDK.showHelpCenter()` which returns promise
 
 ```javascipt
 var isHelpCenterShown = UserIQSDK.showHelpCenter();
 ```
 
-When Modal window or popup is active, helpcenter can't be shown. In those cases, above API will return `false`
+When Modal window or popup is active, helpcenter can't be shown. In those cases, above API will return a promise with "false"
 
 ### Show Contextual help
-Contextual help can be shown by calling `UserIQSDK.showCtxHelp()`
+Contextual help can be shown by calling `UserIQSDK.showCtxHelp()` which returns promise
 
 ```javascipt
 var isCtxHelpShown = UserIQSDK.showCtxHelp();
 ```
 
-Contextual help will only be shown when the current screen is tagged. If the current screen is not tagged then the above API will return `false`
+Contextual help will only be shown when the current screen is tagged. If the current screen is not tagged then the above API will return a promise with "false"
 
 #### InApp-Notification
 ![](images/inapp-default.gif)
