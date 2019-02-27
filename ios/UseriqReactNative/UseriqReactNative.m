@@ -1,6 +1,6 @@
 
 #import "UseriqReactNative.h"
-#import <RCTLog.h>
+#import "RCTLog.h"
 #import <UserIQ/UserIQ.h>
 
 @implementation UseriqReactNative
