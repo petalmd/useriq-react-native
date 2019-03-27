@@ -14,7 +14,7 @@ import com.facebook.react.bridge.JavaScriptModule;
 public class UseriqReactNativePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-      return Arrays.<NativeModule>asList(new UseriqReactNativeModule(reactContext));
+      return Arrays.<NativeModule>asList(new UserIQReactNativeModule(reactContext));
     }
 
     // Deprecated from RN 0.47

@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
+public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
 
     private static final String TAG = "UseriqRNModule";
     private final ReactApplicationContext reactContext;
@@ -65,7 +65,7 @@ public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
         }
     };
 
-    public UseriqReactNativeModule(ReactApplicationContext reactContext) {
+    public UserIQReactNativeModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
         reactContext.addLifecycleEventListener(rnLifecycleListener);
@@ -99,10 +99,26 @@ public class UseriqReactNativeModule extends ReactContextBaseJavaModule {
 
         HashMap<String, Object> map = convertReadableMapToHashMap(readableMap);
 
-        userBuilder.setId(map.remove("id").toString()).setName(map.remove("name").toString())
-                .setEmail(map.remove("email").toString()).setAccountId(map.remove("accountId").toString())
-                .setAccountName(map.remove("accountName").toString())
-                .setSignupDate(map.remove("signUpDate").toString());
+        String id = (String) map.remove("id");
+        String name = (String) map.remove("name");
+        String email = (String) map.remove("email");
+        String accountId = (String) map.remove("accountId");
+        String accountName = (String) map.remove("accountName");
+        String signUpDate = (String) map.remove("signUpDate");
+
+        if (id == null) { id = ""; }
+        if (name == null) { id = ""; }
+        if (email == null) { id = ""; }
+        if (accountId == null) { id = ""; }
+        if (accountName == null) { id = ""; }
+        if (signUpDate == null) { id = ""; }
+
+        userBuilder.setId(id)
+                .setName(name)
+                .setEmail(email)
+                .setAccountId(accountId)
+                .setAccountName(accountName)
+                .setSignupDate(signUpDate);
 
         for (Map.Entry<String, Object> entry : map.entrySet()) {
             userBuilder.addParams(entry.getKey(), entry.getValue().toString());
