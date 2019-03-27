@@ -36,7 +36,7 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
 
 
             UserIQSDKInternal sdkInternal = UserIQSDKInternal.getInstance();
-            if(sdkInternal != null)
+            if (sdkInternal != null)
                 sdkInternal.onReactNativeResume();
         }
 
@@ -46,18 +46,20 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
                     .removeListener(eventDispatcherListener);
 
             UserIQSDKInternal sdkInternal = UserIQSDKInternal.getInstance();
-            if(sdkInternal != null)
+            if (sdkInternal != null)
                 sdkInternal.onReactNativePause();
         }
 
-        @Override public void onHostDestroy() { }
+        @Override
+        public void onHostDestroy() {
+        }
     };
 
     private final EventDispatcherListener eventDispatcherListener = new EventDispatcherListener() {
         @Override
         public void onEventDispatch(Event event) {
             UserIQSDKInternal sdkInternal = UserIQSDKInternal.getInstance();
-            if(sdkInternal != null) {
+            if (sdkInternal != null) {
                 int viewTag = event.getViewTag();
                 String eventName = event.getEventName();
                 sdkInternal.onReactEvent(eventName, viewTag);
@@ -99,19 +101,37 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
 
         HashMap<String, Object> map = convertReadableMapToHashMap(readableMap);
 
-        String id = (String) map.remove("id");
-        String name = (String) map.remove("name");
-        String email = (String) map.remove("email");
-        String accountId = (String) map.remove("accountId");
-        String accountName = (String) map.remove("accountName");
-        String signUpDate = (String) map.remove("signUpDate");
+        String id = "", name = "", email = "", accountId = "", accountName = "", signUpDate = "";
 
-        if (id == null) { id = ""; }
-        if (name == null) { id = ""; }
-        if (email == null) { id = ""; }
-        if (accountId == null) { id = ""; }
-        if (accountName == null) { id = ""; }
-        if (signUpDate == null) { id = ""; }
+        try {
+            id = (String) map.remove("id");
+            name = (String) map.remove("name");
+            email = (String) map.remove("email");
+            accountId = (String) map.remove("accountId");
+            accountName = (String) map.remove("accountName");
+            signUpDate = (String) map.remove("signUpDate");
+        } catch (ClassCastException e) {
+            Log.d(TAG, "Initialization failed: only String values are allowed for setUser() attributes");
+        }
+
+        if (id == null) {
+            id = "";
+        }
+        if (name == null) {
+            name = "";
+        }
+        if (email == null) {
+            email = "";
+        }
+        if (accountId == null) {
+            accountId = "";
+        }
+        if (accountName == null) {
+            accountName = "";
+        }
+        if (signUpDate == null) {
+            signUpDate = "";
+        }
 
         userBuilder.setId(id)
                 .setName(name)
@@ -135,26 +155,26 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
             String key = iterator.nextKey();
             ReadableType type = readableMap.getType(key);
             switch (type) {
-            case Null:
-                deconstructedMap.put(key, null);
-                break;
-            case Boolean:
-                deconstructedMap.put(key, readableMap.getBoolean(key));
-                break;
-            case Number:
-                deconstructedMap.put(key, readableMap.getDouble(key));
-                break;
-            case String:
-                deconstructedMap.put(key, readableMap.getString(key));
-                break;
-            case Map:
-                deconstructedMap.put(key, convertReadableMapToHashMap(readableMap.getMap(key)));
-                break;
-            case Array:
-                deconstructedMap.put(key, getArray(readableMap.getArray(key)));
-                break;
-            default:
-                throw new IllegalArgumentException("Could not convert object with key: " + key + ".");
+                case Null:
+                    deconstructedMap.put(key, null);
+                    break;
+                case Boolean:
+                    deconstructedMap.put(key, readableMap.getBoolean(key));
+                    break;
+                case Number:
+                    deconstructedMap.put(key, readableMap.getDouble(key));
+                    break;
+                case String:
+                    deconstructedMap.put(key, readableMap.getString(key));
+                    break;
+                case Map:
+                    deconstructedMap.put(key, convertReadableMapToHashMap(readableMap.getMap(key)));
+                    break;
+                case Array:
+                    deconstructedMap.put(key, getArray(readableMap.getArray(key)));
+                    break;
+                default:
+                    throw new IllegalArgumentException("Could not convert object with key: " + key + ".");
             }
 
         }
@@ -166,26 +186,26 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
         for (int i = 0; i < readableArray.size(); i++) {
             ReadableType indexType = readableArray.getType(i);
             switch (indexType) {
-            case Null:
-                deconstructedList.add(i, null);
-                break;
-            case Boolean:
-                deconstructedList.add(i, readableArray.getBoolean(i));
-                break;
-            case Number:
-                deconstructedList.add(i, readableArray.getDouble(i));
-                break;
-            case String:
-                deconstructedList.add(i, readableArray.getString(i));
-                break;
-            case Map:
-                deconstructedList.add(i, convertReadableMapToHashMap(readableArray.getMap(i)));
-                break;
-            case Array:
-                deconstructedList.add(i, getArray(readableArray.getArray(i)));
-                break;
-            default:
-                throw new IllegalArgumentException("Could not convert object at index " + i + ".");
+                case Null:
+                    deconstructedList.add(i, null);
+                    break;
+                case Boolean:
+                    deconstructedList.add(i, readableArray.getBoolean(i));
+                    break;
+                case Number:
+                    deconstructedList.add(i, readableArray.getDouble(i));
+                    break;
+                case String:
+                    deconstructedList.add(i, readableArray.getString(i));
+                    break;
+                case Map:
+                    deconstructedList.add(i, convertReadableMapToHashMap(readableArray.getMap(i)));
+                    break;
+                case Array:
+                    deconstructedList.add(i, getArray(readableArray.getArray(i)));
+                    break;
+                default:
+                    throw new IllegalArgumentException("Could not convert object at index " + i + ".");
             }
         }
         return deconstructedList;
