@@ -11,7 +11,7 @@ export class App extends React.Component {
     })()
 
     UserIQ.setUser({
-      id: "101",
+      id: 101,
       name: "Test User",
       email: "user@test.com",
       accountId: "101",
@@ -21,7 +21,7 @@ export class App extends React.Component {
   }
 }
 
-export const App = createStackNavigator({
+export const app = createStackNavigator({
   Home: { screen: SearchPage },
   Results: { screen: SearchResults },
 });

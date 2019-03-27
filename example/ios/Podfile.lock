@@ -1,0 +1,16 @@
+PODS:
+  - UserIQ (2.0.1)
+
+DEPENDENCIES:
+  - UserIQ
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - UserIQ
+
+SPEC CHECKSUMS:
+  UserIQ: 4c0f9975a7946c0afa4b0834135bf2a7b4f663cf
+
+PODFILE CHECKSUM: 8e409f331510dfb2c7d5bb0d3dc54fda3b565e23
+
+COCOAPODS: 1.5.3

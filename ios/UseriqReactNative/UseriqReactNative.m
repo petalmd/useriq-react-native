@@ -27,17 +27,25 @@ RCT_EXPORT_METHOD(setUser:(NSDictionary *)user){
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     for (NSString *key in [user allKeys]) {
         if ([key isEqualToString:@"id"]) {
-            userId = [user valueForKey:@"id"];
+//            userId = [user valueForKey:@"id"];
+            if ([[user valueForKey:@"id"] isKindOfClass:[NSString class]]) {
+                userId = [user valueForKey:@"id"];
+            } else if ([[user valueForKey:@"id"] isKindOfClass:[NSNumber class]]) {
+                NSNumber *intUserId = [user valueForKey:@"id"];
+                userId = [intUserId stringValue];
+            } else {
+                userId = @"";
+            }
         } else if([key isEqualToString:@"name"]) {
-            name = [user valueForKey:@"name"];
+            name = ([[user valueForKey:@"name"] isEqual:[NSNull null]]?@"":[user valueForKey:@"name"]);
         } else if([key isEqualToString:@"email"]) {
-            email = [user valueForKey:@"email"];
+            email = ([[user valueForKey:@"email"] isEqual:[NSNull null]]?@"":[user valueForKey:@"email"]);;
         } else if([key isEqualToString:@"accountId"]) {
-            accId = [[user valueForKey:@"accountId"] intValue];
+            accId = ([[user valueForKey:@"accountId"] isEqual:[NSNull null]]?0:[[user valueForKey:@"accountId"] intValue]);
         } else if([key isEqualToString:@"accountName"]) {
-            accountName = [user valueForKey:@"accountName"];
+            accountName = ([[user valueForKey:@"accountName"] isEqual:[NSNull null]]?@"":[user valueForKey:@"accountName"]);
         } else if([key isEqualToString:@"signUpDate"]) {
-            signupDate = [user valueForKey:@"signUpDate"];
+            signupDate = ([[user valueForKey:@"signUpDate"] isEqual:[NSNull null]]?@"":[user valueForKey:@"signUpDate"]);
         } else {
             [parameters setObject:[user valueForKey:key] forKey:key];
         }
