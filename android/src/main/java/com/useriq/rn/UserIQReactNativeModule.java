@@ -112,6 +112,7 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
             signUpDate = (String) map.remove("signUpDate");
         } catch (ClassCastException e) {
             Log.d(TAG, "Initialization failed: only String values are allowed for setUser() attributes");
+            return;
         }
 
         if (id == null) {
