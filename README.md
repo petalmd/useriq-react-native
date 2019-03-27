@@ -26,8 +26,8 @@ Go to back to the home folder in the command line and enter
 
 1. Open up `android/app/src/main/java/[...]/MainApplication.java`
 
-- Add `import com.useriq.rn.UseriqReactNativePackage;` to the imports at the top of the file
-- Add `new UseriqReactNativePackage()` to the list returned by the `getPackages()` method
+- Add `import com.useriq.rn.UserIQReactNativePackage;` to the imports at the top of the file
+- Add `new UserIQReactNativePackage()` to the list returned by the `getPackages()` method
 
 2. Append the following lines to `android/settings.gradle`:
    ```
@@ -83,7 +83,7 @@ This will automatically choose the right `api_key` for the appropriate platform 
 
 ### 2. Set loggedin user
 
-SDK initialization itself doesnt send any data to UserIQ server until `setUser()` is called. So after user is sucessfully logged in, call `setUser()` with required params.
+SDK initialization itself doesnt send any data to UserIQ server until `setUser()` is called. So after user is sucessfully logged in, call `setUser()` with required params. `id`, `name`, `email`, `accountId`, `accountName` and `signUpDate` will be `String`
 
 ```javascript
 import React from 'react'
