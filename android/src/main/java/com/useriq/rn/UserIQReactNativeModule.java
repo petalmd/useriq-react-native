@@ -63,6 +63,10 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void init(String apiKey) {
         Log.d(TAG, "SDK initialized with api key: " + apiKey);
+        if (getCurrentActivity() == null) {
+            Log.d(TAG, "Initialization failed: Current activity is null");
+            return;
+        }
         UserIQSDK.init(getCurrentActivity().getApplication(), apiKey);
     }
 
