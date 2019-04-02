@@ -10,10 +10,8 @@ export class App extends React.Component {
       ios: () => UserIQ.init('IOS_API_KEY'),
     })()
 
-    UserIQ.setHost("dev-mobile.useriq.com/sdk");
-
     UserIQ.setUser({
-      id: "101",
+      id: 101,
       name: "Test User",
       email: "user@test.com",
       accountId: "101",
@@ -23,7 +21,7 @@ export class App extends React.Component {
   }
 }
 
-export const App = createStackNavigator({
+export const app = createStackNavigator({
   Home: { screen: SearchPage },
   Results: { screen: SearchResults },
 });
