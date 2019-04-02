@@ -1,4 +1,3 @@
-
 package com.useriq.rn;
 
 import android.util.Log;
@@ -12,9 +11,6 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
 import com.facebook.react.bridge.ReadableType;
-import com.facebook.react.uimanager.UIManagerModule;
-import com.facebook.react.uimanager.events.Event;
-import com.facebook.react.uimanager.events.EventDispatcherListener;
 import com.useriq.sdk.UserIQSDK;
 import com.useriq.sdk.UserIQSDKInternal;
 
@@ -31,10 +27,6 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
     private final LifecycleEventListener rnLifecycleListener = new LifecycleEventListener() {
         @Override
         public void onHostResume() {
-            reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
-                    .addListener(eventDispatcherListener);
-
-
             UserIQSDKInternal sdkInternal = UserIQSDKInternal.getInstance();
             if (sdkInternal != null)
                 sdkInternal.onReactNativeResume();
@@ -42,9 +34,6 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
 
         @Override
         public void onHostPause() {
-            reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher()
-                    .removeListener(eventDispatcherListener);
-
             UserIQSDKInternal sdkInternal = UserIQSDKInternal.getInstance();
             if (sdkInternal != null)
                 sdkInternal.onReactNativePause();
@@ -52,18 +41,6 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
 
         @Override
         public void onHostDestroy() {
-        }
-    };
-
-    private final EventDispatcherListener eventDispatcherListener = new EventDispatcherListener() {
-        @Override
-        public void onEventDispatch(Event event) {
-            UserIQSDKInternal sdkInternal = UserIQSDKInternal.getInstance();
-            if (sdkInternal != null) {
-                int viewTag = event.getViewTag();
-                String eventName = event.getEventName();
-                sdkInternal.onReactEvent(eventName, viewTag);
-            }
         }
     };
 
@@ -85,6 +62,7 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void init(String apiKey) {
+        Log.d(TAG, "SDK initialized with api key: " + apiKey);
         UserIQSDK.init(getCurrentActivity().getApplication(), apiKey);
     }
 
