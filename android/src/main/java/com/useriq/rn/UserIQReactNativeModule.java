@@ -67,7 +67,7 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
             Log.d(TAG, "Initialization failed: Current activity is null");
             return;
         }
-        UserIQSDK.init(getCurrentActivity().getApplication(), apiKey);
+        UserIQSDK.init(getCurrentActivity(), apiKey);
     }
 
     @ReactMethod
