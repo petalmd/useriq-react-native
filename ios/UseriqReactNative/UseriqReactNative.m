@@ -22,42 +22,52 @@ RCT_EXPORT_METHOD(setUser:(NSDictionary *)user){
     RCTLogInfo(@"%@",user);
     NSString *apiKeyMissing = @"apiKey Missing";
     NSAssert((![self.apiKey isEqualToString:@""]&&self.apiKey), apiKeyMissing);
-    NSString *userId, *name, *email, *accountName, *signupDate;
-    int accId;
+    NSString *userId, *name, *email, *accountName, *signupDate, *accId;
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     for (NSString *key in [user allKeys]) {
+        NSString *valueAsString;
+        if ([[user valueForKey:key] isKindOfClass:[NSNumber class]]) {
+            NSNumber *value = [user valueForKey:key];
+            valueAsString = [value stringValue];
+        } else if ([[user valueForKey:key] isKindOfClass:[NSString class]]){
+            valueAsString = [user valueForKey:key];
+        }
         if ([key isEqualToString:@"id"]) {
-//            userId = [user valueForKey:@"id"];
-            if ([[user valueForKey:@"id"] isKindOfClass:[NSString class]]) {
-                userId = [user valueForKey:@"id"];
-            } else if ([[user valueForKey:@"id"] isKindOfClass:[NSNumber class]]) {
-                NSNumber *intUserId = [user valueForKey:@"id"];
-                userId = [intUserId stringValue];
-            } else {
-                userId = @"";
-            }
+            userId = valueAsString;
         } else if([key isEqualToString:@"name"]) {
-            name = ([[user valueForKey:@"name"] isEqual:[NSNull null]]?@"":[user valueForKey:@"name"]);
+            name = valueAsString;
         } else if([key isEqualToString:@"email"]) {
-            email = ([[user valueForKey:@"email"] isEqual:[NSNull null]]?@"":[user valueForKey:@"email"]);;
+            email = valueAsString;
         } else if([key isEqualToString:@"accountId"]) {
-            accId = ([[user valueForKey:@"accountId"] isEqual:[NSNull null]]?0:[[user valueForKey:@"accountId"] intValue]);
+            accId = valueAsString;
         } else if([key isEqualToString:@"accountName"]) {
-            accountName = ([[user valueForKey:@"accountName"] isEqual:[NSNull null]]?@"":[user valueForKey:@"accountName"]);
+            accountName = [user valueForKey:@"accountName"];
         } else if([key isEqualToString:@"signUpDate"]) {
-            signupDate = ([[user valueForKey:@"signUpDate"] isEqual:[NSNull null]]?@"":[user valueForKey:@"signUpDate"]);
+            signupDate = [user valueForKey:@"signUpDate"];
         } else {
             [parameters setObject:[user valueForKey:key] forKey:key];
         }
     }
-    [[UserIQSDK sharedInstance] initWithAPIKey:self.apiKey
-                                        userId:userId
-                                          name:name
-                                         email:email
-                                     accountId:accId
-                                   accountName:accountName
-                                    signupDate:signupDate
-                                 andParameters:parameters];
+    if (!self.isInitiated) {
+        [[UserIQSDK sharedInstance] initWithAPIKey:self.apiKey
+                                            userId:userId
+                                              name:name
+                                             email:email
+                                         accountId:accId
+                                       accountName:accountName
+                                        signupDate:signupDate
+                                     andParameters:parameters];
+        self.isInitiated = YES;
+    } else {
+        [[UserIQSDK sharedInstance] setUserId:userId
+                                         name:name
+                                        email:email
+                                    accountId:accId
+                                  accountName:accountName
+                                   signupDate:signupDate
+                                andParameters:parameters];
+    }
+    
     //    resolve(@"successful UserIQ SDK setUser Successful");
 }
 
