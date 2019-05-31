@@ -316,9 +316,9 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
-		F239D38E224BFBE800E73325 /* PBXContainerItemProxy */ = {
+		F2089CB62266285E00470598 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B1BE6BC367134C9EB8CD3039 /* UseriqReactNative.xcodeproj */;
+			containerPortal = F2089CB22266285E00470598 /* UseriqReactNative.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = UseriqReactNative;
@@ -354,9 +354,9 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		B1BE6BC367134C9EB8CD3039 /* UseriqReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = UseriqReactNative.xcodeproj; path = "../node_modules/useriq-react-native/ios/UseriqReactNative.xcodeproj"; sourceTree = "<group>"; };
 		C3C4DB6AFC41014BB5821105 /* Pods-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-example/Pods-example.debug.xcconfig"; sourceTree = "<group>"; };
 		EDBE367774BB405C8F49A246 /* libUseriqReactNative.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libUseriqReactNative.a; sourceTree = "<group>"; };
+		F2089CB22266285E00470598 /* UseriqReactNative.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UseriqReactNative.xcodeproj; path = ../../ios/UseriqReactNative.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,6 +571,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F2089CB22266285E00470598 /* UseriqReactNative.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -583,7 +584,6 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				B1BE6BC367134C9EB8CD3039 /* UseriqReactNative.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -633,20 +633,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F2089CB32266285E00470598 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2089CB72266285E00470598 /* libUseriqReactNative.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F239D365224BFBE800E73325 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				EDBE367774BB405C8F49A246 /* libUseriqReactNative.a */,
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		F239D38B224BFBE800E73325 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F239D38F224BFBE800E73325 /* libUseriqReactNative.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -811,8 +811,8 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
-					ProductGroup = F239D38B224BFBE800E73325 /* Products */;
-					ProjectRef = B1BE6BC367134C9EB8CD3039 /* UseriqReactNative.xcodeproj */;
+					ProductGroup = F2089CB32266285E00470598 /* Products */;
+					ProjectRef = F2089CB22266285E00470598 /* UseriqReactNative.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1085,11 +1085,11 @@
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		F239D38F224BFBE800E73325 /* libUseriqReactNative.a */ = {
+		F2089CB72266285E00470598 /* libUseriqReactNative.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libUseriqReactNative.a;
-			remoteRef = F239D38E224BFBE800E73325 /* PBXContainerItemProxy */;
+			remoteRef = F2089CB62266285E00470598 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
