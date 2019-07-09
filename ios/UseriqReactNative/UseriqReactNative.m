@@ -13,15 +13,12 @@
 RCT_EXPORT_MODULE(UseriqReactNative);
 
 RCT_EXPORT_METHOD(init:(NSString *)apiKey){
-    self.apiKey = apiKey;
     RCTLogInfo(@"\n*****SDK initialized with apiKey: %@*****",apiKey);
-    //    resolve(@"successful UserIQ SDK initialization");
+    [[UserIQSDK sharedInstance] initWithAPIKey:apiKey];
 }
 
 RCT_EXPORT_METHOD(setUser:(NSDictionary *)user){
     RCTLogInfo(@"%@",user);
-    NSString *apiKeyMissing = @"apiKey Missing";
-    NSAssert((![self.apiKey isEqualToString:@""]&&self.apiKey), apiKeyMissing);
     NSString *userId, *name, *email, *accountName, *signupDate, *accId;
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     for (NSString *key in [user allKeys]) {
@@ -48,27 +45,7 @@ RCT_EXPORT_METHOD(setUser:(NSDictionary *)user){
             [parameters setObject:[user valueForKey:key] forKey:key];
         }
     }
-    if (!self.isInitiated) {
-        [[UserIQSDK sharedInstance] initWithAPIKey:self.apiKey
-                                            userId:userId
-                                              name:name
-                                             email:email
-                                         accountId:accId
-                                       accountName:accountName
-                                        signupDate:signupDate
-                                     andParameters:parameters];
-        self.isInitiated = YES;
-    } else {
-        [[UserIQSDK sharedInstance] setUserId:userId
-                                         name:name
-                                        email:email
-                                    accountId:accId
-                                  accountName:accountName
-                                   signupDate:signupDate
-                                andParameters:parameters];
-    }
-    
-    //    resolve(@"successful UserIQ SDK setUser Successful");
+    [[UserIQSDK sharedInstance] setUserId:userId name:name email:email accountId:accId accountName:accountName signupDate:signupDate andParameters:parameters];
 }
 
 RCT_EXPORT_METHOD(disableFAB) {
