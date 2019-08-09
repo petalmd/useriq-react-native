@@ -7,7 +7,7 @@ Add run `pod install` inside the folder. This will download the `UserIQ framewor
 
 Go to back to the home folder in the command line and enter
 
-`$ npm install useriq-react-native --save`
+`$ npm install @useriq/useriq-react-native --save`
 
 ### Mostly automatic installation
 
