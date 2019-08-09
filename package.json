@@ -16,13 +16,9 @@
   "keywords": [
     "react-native"
   ],
-  "author": {
-    "name": "Sudhakar",
-    "email": "sudhakar@useriq.com"
-  },
+  "author": "Sudhakar <sudhakar@useriq.com>",
   "license": "Apache-2.0",
   "licenseFilename": "LICENSE",
-  "readmeFilename": "README.md",
   "peerDependencies": {
     "react": "^16.0.0",
     "react-native": "^0.44.1"
@@ -35,5 +31,12 @@
     "mem": "^4.0.0",
     "merge": "^1.2.1",
     "react-navigation": "git+https://github.com/react-navigation/react-navigation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/useriq-com/useriq-react-native/issues"
+  },
+  "homepage": "https://github.com/useriq-com/useriq-react-native#readme",
+  "directories": {
+    "example": "example"
   }
 }
