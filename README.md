@@ -98,7 +98,8 @@ class LoginComponent extends React.Component {
       accountId: user.accountId,
       accountName: user.accountName,
       signUpDate: user.signUpDate,
-      parameters: {"location":"Atlanta"}
+      "custom_parameter_1": "custom_value_1",
+      "custom_parameter_2": "custom_value_2"
     })
   }
 }
