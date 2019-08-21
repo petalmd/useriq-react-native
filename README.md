@@ -104,3 +104,5 @@ class LoginComponent extends React.Component {
   }
 }
 ```
+
+For more details on API & usage, please refer to [wiki page](https://github.com/useriq-com/useriq-react-native/wiki)
