@@ -53,7 +53,7 @@ Initialize `UserIQ` sdk as eary as possible. `UserIQ.init()` method needs to be 
 
 ```javascript
 import React from 'react';
-import UserIQ from 'useriq-react-native'
+import UserIQ from '@useriq/useriq-react-native'
 
 export class App extends React.Component {
 
@@ -71,7 +71,7 @@ If you have single code base for both iOS & Android & if you want to initialize 
 ```javascript
 import React from 'react';
 import { Platform } from 'react-native';
-import UserIQ from 'useriq-react-native'
+import UserIQ from '@useriq/useriq-react-native'
 
 export class App extends React.Component {
 
@@ -93,7 +93,7 @@ SDK initialization itself doesnt send any data to UserIQ server until `setUser()
 
 ```javascript
 import React from 'react'
-import UserIQ from 'useriq-react-native'
+import UserIQ from '@useriq/useriq-react-native'
 
 class LoginComponent extends React.Component {
   onLoginSuccess(user) {
