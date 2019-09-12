@@ -17,7 +17,7 @@ Go back to the react-native project folder in the command line and enter
 
 ### Mostly automatic installation
 
-`$ react-native link useriq-react-native`
+`$ react-native link @useriq/useriq-react-native`
 
 ### Manual installation
 
