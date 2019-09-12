@@ -2,10 +2,16 @@
 
 ## Getting started
 
-Go to the iOS folder and add `pod 'UserIQ'` to your `Podfile`.
-Add run `pod install` inside the folder. This will download the `UserIQ framework` via cocoapods.
+1. Go to the iOS folder inside your react-native project folder
+2. Open `Podfile`. If `Podfile` is not present, create a `Podfile` from command line using the `pod init` command.
+3. Under `target '<app-name>'`, add `pod 'UserIQ'`.
+4. Open command line and go to the `iOS` folder inside your react-native project folder in terminal.
+5. Run `pod install`. This will download the `UserIQ framework` via cocoapods.
 
-Go to back to the home folder in the command line and enter
+> Make sure the `Podfile` is inside the `iOS` folder.
+
+
+Go back to the react-native project folder in the command line and enter
 
 `$ npm install @useriq/useriq-react-native --save`
 
