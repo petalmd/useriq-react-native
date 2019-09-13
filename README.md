@@ -37,12 +37,12 @@ Go back to the react-native project folder in the command line and enter
 
 2. Append the following lines to `android/settings.gradle`:
    ```
-   include ':useriq-react-native'
-   project(':useriq-react-native').projectDir = new File(rootProject.projectDir, 	'../node_modules/useriq-react-native/android')
+   include ':@useriq_useriq-react-native'
+   project(':@useriq_useriq-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/@useriq/useriq-react-native/android')
    ```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
    ```
-     compile project(':useriq-react-native')
+    compile project(':@useriq_useriq-react-native')
    ```
 
 ## Usage
