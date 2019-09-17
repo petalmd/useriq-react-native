@@ -19,13 +19,13 @@ In case you prefer yarn over npm, use the following command
 
 #### Additional Steps For iOS
 
-1. [Download UserIQ framework via Cocoapods](#-Download-UserIQ-Framework-via-Cocoapods)
+1. [Download UserIQ framework via Cocoapods](#download-useriq-framework-via-cocoapods)
 
 ### Manual
 
 #### iOS
 
-1. [Download UserIQ framework via Cocoapods](#-Download-UserIQ-Framework-via-Cocoapods)
+1. [Download UserIQ framework via Cocoapods](#download-useriq-framework-via-cocoapods)
 
 2. Open `<your-project-name>.xcworkspace` in Xcode.
 
