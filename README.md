@@ -22,7 +22,7 @@ In case you prefer yarn over npm, use the following command
 
 
   ```bash
-  $ react-native link react-native-fbsdk
+  $ react-native link @useriq/useriq-react-native
   ```
 
 > *Note*:  For `iOS` using `cocoapods`, run:
