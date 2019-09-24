@@ -25,11 +25,11 @@ In case you prefer yarn over npm, use the following command
   $ react-native link react-native-fbsdk
   ```
 
-  > *Note*:  For `iOS` using `cocoapods`, run:
+> *Note*:  For `iOS` using `cocoapods`, run:
 
-  ```bash
-  $ cd ios/ && pod install
-  ```
+```bash
+$ cd ios/ && pod install
+```
 
 <details>
 <summary>Manually link the library on iOS</summary>
