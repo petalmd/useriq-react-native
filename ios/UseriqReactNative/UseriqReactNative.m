@@ -1,6 +1,10 @@
 
 #import "UseriqReactNative.h"
+#if __has_include(<React/RCTLog.h>)
+#import <React/RCTLog.h>
+#else
 #import "RCTLog.h"
+#endif
 #import <UserIQ/UserIQ.h>
 
 @implementation UseriqReactNative

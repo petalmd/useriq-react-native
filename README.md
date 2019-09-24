@@ -12,36 +12,38 @@ In case you prefer yarn over npm, use the following command
 
 ## Linking the project
 
-### Automatic
-
-`$ react-native link @useriq/useriq-react-native`
+- **React Native 0.60+**
 
 
-#### Additional Steps For iOS
+  [CLI autolink feature](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) links the module while building the app. 
 
-1. [Download UserIQ framework via Cocoapods](#download-useriq-framework-via-cocoapods)
 
-### Manual
+- **React Native <= 0.59**
 
-#### iOS
 
-1. [Download UserIQ framework via Cocoapods](#download-useriq-framework-via-cocoapods)
+  ```bash
+  $ react-native link react-native-fbsdk
+  ```
 
-2. Open `<your-project-name>.xcworkspace` in Xcode.
+  > *Note*:  For `iOS` using `cocoapods`, run:
 
-3. Click on the `Schemes` list and click on `New Scheme`.
+  ```bash
+  $ cd ios/ && pod install
+  ```
 
-4. Under the `Target` list select `UseriqReactNative` and click `OK`.
+<details>
+<summary>Manually link the library on iOS</summary>
 
-5. Build the `UseriqReactNative` target.
+Either follow the [instructions in the React Native documentation](https://facebook.github.io/react-native/docs/linking-libraries-ios#manual-linking) to manually link the framework or link using [Cocoapods](https://cocoapods.org) by adding this to your `Podfile`:
 
-6. Change your target to your app.
+```ruby
+pod 'UseriqReactNative', :path => '../node_modules/@useriq/useriq-react-native'
+```
 
-7. Run your project (`Cmd+R`)
+</details>
 
-> For further information visit [Manual Linking for iOS](http://facebook.github.io/react-native/docs/linking-libraries-ios.html#manual-linking)
-
-#### Android
+<details>
+<summary>Manually link the library on Android</summary>
 
 1. Open up `android/app/src/main/java/[...]/MainApplication.java`
 
@@ -58,17 +60,7 @@ In case you prefer yarn over npm, use the following command
     implementation project(':@useriq_useriq-react-native')
    ```
 
-### Download UserIQ Framework via Cocoapods
-
-1. Go to the iOS folder inside your react-native project folder
-2. Open `Podfile`. If `Podfile` is not present, create a `Podfile` from command line using the `pod init` command.
-3. Under `target '<app-name>'`, add `pod 'UserIQ'`.
-4. Open command line and go to the `iOS` folder inside your react-native project folder in terminal.
-5. Run `pod install`. This will download the `UserIQ framework` via cocoapods.
-
-> Make sure the `Podfile` is inside the `iOS` folder.
-
-> The pod download should also be done in case of [manual linking](#Manual).
+</details>
 
 ## Usage
 

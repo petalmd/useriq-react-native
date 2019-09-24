@@ -103,6 +103,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -231,6 +232,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/../../../ios/Pods/UserIQ/SDK/**",
+					"$(SRCROOT)/../../../../ios/Pods/UserIQ/SDK",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -238,6 +240,7 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 					"$(SRCROOT)/../../../ios/Pods/UserIQ/SDK/**",
+					"$(SRCROOT)/../../../../ios/Pods/UserIQ/SDK",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
@@ -253,6 +256,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(SRCROOT)/../../../ios/Pods/UserIQ/SDK/**",
+					"$(SRCROOT)/../../../../ios/Pods/UserIQ/SDK",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -260,6 +264,7 @@
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 					"$(SRCROOT)/../../../ios/Pods/UserIQ/SDK/**",
+					"$(SRCROOT)/../../../../ios/Pods/UserIQ/SDK",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";

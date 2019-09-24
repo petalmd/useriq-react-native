@@ -11,8 +11,7 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://github.com/author/UseriqReactNative"
   s.license      = "MIT"
-  # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author       = { "author" => "author@domain.cn" }
+  s.author       = { "Aravind G S" => "aravind.gs@useriq.com" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/author/UseriqReactNative.git", :tag => "#{s.version}" }
 
