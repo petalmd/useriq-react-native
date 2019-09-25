@@ -34,11 +34,13 @@ $ cd ios/ && pod install
 <details>
 <summary>Manually link the library on iOS</summary>
 
-Either follow the [instructions in the React Native documentation](https://facebook.github.io/react-native/docs/linking-libraries-ios#manual-linking) to manually link the framework or link using [Cocoapods](https://cocoapods.org) by adding this to your `Podfile`:
-
-```ruby
-pod 'UseriqReactNative', :path => '../node_modules/@useriq/useriq-react-native'
-```
+1. Install UserIQ framework via Cocoapods in the iOS folder of your app project
+  
+  ```ruby
+  pod 'UserIQ'
+  ```
+  
+2. Follow the [instructions in the React Native documentation](https://facebook.github.io/react-native/docs/linking-libraries-ios#manual-linking) to manually link the framework
 
 </details>
 
