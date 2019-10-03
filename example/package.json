@@ -19,37 +19,12 @@
     "@babel/runtime": "^7.5.5",
     "@react-native-community/eslint-config": "^0.0.5",
     "babel-jest": "^24.8.0",
-    "detox": "^13.3.2",
     "eslint": "^6.1.0",
     "jest": "^24.8.0",
     "metro-react-native-babel-preset": "^0.55.0",
-    "mocha": "^6.2.0",
     "react-test-renderer": "16.8.6"
   },
   "jest": {
     "preset": "react-native"
-  },
-  "detox": {
-    "configurations": {
-      "android.emu.debug": {
-        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
-        "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
-        "type": "android.emulator",
-        "name": "Pixel_3_API_28"
-      },
-      "android.emu.release": {
-        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
-        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
-        "type": "android.emulator",
-        "name": "Pixel_3_API_28"
-      },
-      "ios.sim.debug": {
-        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/example.app",
-        "build": "xcodebuild -workspace ios/example.xcworkspace -scheme example -sdk iphonesimulator -config Debug -derivedDataPath ios/build",
-        "type": "ios.simulator",
-        "name": "iPhone X"
-      }
-    },
-    "test-runner": "mocha"
   }
 }

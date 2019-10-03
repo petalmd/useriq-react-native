@@ -35,7 +35,7 @@ const App = () => {
   //  Get your API key for the app in App Settings on http://mobile.useriq.com
   Platform.select({
     ios: () => UserIQ.init('5eef3e2a507e6c7eb022009bc15f4d0778dce39f'),
-    android: () => UserIQ.init('bffd170cfd33e9c0385787bd34dc4e12072f0c45'),
+    android: () => UserIQ.init('0cf5c469e362abad982139961b10607e7e8aefc2'),
   })()
   UserIQ.setUser({
     id: '1',
