@@ -19,7 +19,7 @@ If you are using Cocoapods or Carthage, skip Step 1 & Step 2, go directly to [St
 Add
 
 ```
-  pod 'UserIQ', '~> 2.0'
+  pod 'UserIQ', '~> 2.4'
 ```
 
 to your Podfile.
@@ -68,7 +68,7 @@ The **_UserIQ.framework_** is to be copied into your project folder.
 
   Objective-C:
 
-  ```Objective-C
+  ```objc
     #import <UserIQ/UserIQ.h>
   ```
 
@@ -78,13 +78,12 @@ The **_UserIQ.framework_** is to be copied into your project folder.
 
   ```Swift
     func application(_application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-      //Override point for customization after application launch.
       UserIQSDK.sharedInstance().initWithAPIKey(
         "<YOUR-API-KEY>",
         userId: "EMP124",
         name: "Alex",
         email: "alex@useriq.com",
-        accountId: 1,
+        accountId: "1",
         accountName: "Acme Corp",
         signupDate: "2017-04-21",
         andParameters: ["location":"Atlanta"]
@@ -94,14 +93,14 @@ The **_UserIQ.framework_** is to be copied into your project folder.
 
   Objective-C :
 
-  ```Objective-C
+  ```objc
     -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
       // Override point for customization after application launch.
       [[UserIQSDK sharedInstance] initWithAPIKey:@"<YOUR-API-KEY>"
                                         userId:@"EMP124"
                                           name:@"Alex"
                                          email:@"alex@useriq.com"
-                                     accountId:1
+                                     accountId:@"1"
                                    accountName:@"Acme Corp"
                                     signupDate:@"2017-04-21"
                                  andParameters:@{@"location":@"Atlanta"}];
@@ -109,6 +108,24 @@ The **_UserIQ.framework_** is to be copied into your project folder.
   ```
 
   Note - The **_API-KEY_** can be obtained from the integration page of your app in the UserIQ dashboard.
+
+### Step 4: Add the custom parameters (optional)
+
+Add any custom attributes about the user in andParameters(String key, String value)
+
+Swift :
+
+```Swift
+     andParameters: ["location":"Atlanta", "Foo":"Bar", "Foo1": "Bar1"]
+
+```
+
+Objective-C :
+
+```objc
+     andParameters:@{@"location":@"Atlanta", @"Foo":@"Bar", @"Foo1":@"Bar1"}
+
+```
 
 ### PUBLIC APIs
 
@@ -122,7 +139,7 @@ The **_UserIQ.framework_** is to be copied into your project folder.
 
   Objective-C :
 
-  ```Objective-C
+  ```objc
   BOOL ctxHelpSuccess = [[UserIQSDK sharedInstance] showCtxHelp];
   ```
 
@@ -136,7 +153,7 @@ The **_UserIQ.framework_** is to be copied into your project folder.
 
   Objective-C:
 
-  ```Objective-C
+  ```objc
   [[UserIQSDK sharedInstance] showHelpCentre];
   ```
 
@@ -150,7 +167,7 @@ The **_UserIQ.framework_** is to be copied into your project folder.
 
   Objective-C :
 
-  ```Objective-C
+  ```objc
   [[UserIQSDK sharedInstance] disableFAB];
   ```
 
