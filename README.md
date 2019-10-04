@@ -1,24 +1,32 @@
 # useriq-react-native
 
+* [Installing react-native SDK](https://github.com/useriq-com/useriq-react-native#installing-react-native-sdk)
+* [Linking the project](https://github.com/useriq-com/useriq-react-native#linking-the-project)
+* [Usage](https://github.com/useriq-com/useriq-react-native#usage)
+* [API & Usage](https://github.com/useriq-com/useriq-react-native#api--usage)
+
+---
+
 ## Installing React-native SDK
 
 `$ npm install @useriq/useriq-react-native --save`
 
 > Note: Before `npm 5.0.0` the `--save` flag is required in this step. React Native will link modules based on dependencies in your package.json file.
 
-In case you prefer yarn over npm, use the following command
+Or in case you prefer yarn over npm, use the following command
 
 `yarn add @useriq/useriq-react-native`
 
+---
 ## Linking the project
-
-- **React Native 0.60+**
+### Autolinking
+- **If using React Native 0.60+**
 
 
   [CLI autolink feature](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md) links the module while building the app. 
 
 
-- **React Native <= 0.59**
+- **If using React Native <= 0.59**
 
 
   ```bash
@@ -31,6 +39,9 @@ In case you prefer yarn over npm, use the following command
 $ cd ios/ && pod install
 ```
 
+If you can't or don't want to use the CLI tool, you can also manually link the library using the instructions below
+
+### Manual linking
 <details>
 <summary>Manually link the library on iOS</summary>
 
@@ -64,6 +75,8 @@ $ cd ios/ && pod install
 
 </details>
 
+---
+
 ## Usage
 
 ### 1. Initialization
@@ -77,11 +90,12 @@ import UserIQ from '@useriq/useriq-react-native'
 export class App extends React.Component {
 
   componentDidMount() {
-    UserIQ.init('API_KEY')
+    UserIQ.init('<YOUR_MOBILE_API_KEY>')
   }
   ...
 }
 ```
+> Note: The `<YOUR_MOBILE_API_KEY>` is available in the [mobile dashboard](https://mobile.useriq.com) under the `App Settings` page.
 
 ### 1a. Initialize for multiple platforms
 
@@ -106,9 +120,11 @@ export class App extends React.Component {
 
 This will automatically choose the right `api_key` for the appropriate platform & initialize it.
 
+> Note: The `IOS_API_KEY` & `ANDROID_API_KEY` is available in the [mobile dashboard](https://mobile.useriq.com) under the `App Settings` page.
+
 ### 2. Set loggedin user
 
-SDK initialization itself doesnt send any data to UserIQ server until `setUser()` is called. So after user is sucessfully logged in, call `setUser()` with required params. `id`, `name`, `email`, `accountId`, `accountName` and `signUpDate` will be `String`
+SDK initialization itself doesnt send any data to UserIQ server until `setUser()` is called. So after user is sucessfully logged in, call `setUser()` with required params. `id`, `name`, `email`, `accountId`, `accountName` and `signUpDate` are mandatory parameters to be passed and values should be passed `String`
 
 ```javascript
 import React from 'react'
@@ -123,8 +139,8 @@ class LoginComponent extends React.Component {
       accountId: user.accountId,
       accountName: user.accountName,
       signUpDate: user.signUpDate,
-      "custom_parameter_1": "custom_value_1",
-      "custom_parameter_2": "custom_value_2"
+      custom_parameter_1: "custom_value_1",
+      custom_parameter_2: "custom_value_2"
     })
   }
 }
