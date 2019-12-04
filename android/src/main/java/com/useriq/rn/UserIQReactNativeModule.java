@@ -242,4 +242,9 @@ public class UserIQReactNativeModule extends ReactContextBaseJavaModule {
         }
     }
 
+    @ReactMethod
+    public void logOut() {
+        UserIQSDK.logOut();
+    }
+
 }

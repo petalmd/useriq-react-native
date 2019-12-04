@@ -8,11 +8,11 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@useriq/useriq-react-native": "file:..",
     "react": "16.8.6",
     "react-native": "0.60.4",
     "react-native-elements": "^1.1.0",
-    "react-native-vector-icons": "^6.6.0",
-    "useriq-react-native": "git+https://git@github.com/useriq-com/useriq-react-native.git"
+    "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

@@ -19,7 +19,7 @@ If you are using Cocoapods or Carthage, skip Step 1 & Step 2, go directly to [St
 Add
 
 ```
-  pod 'UserIQ', '~> 2.4'
+  pod 'UserIQ', '~> 2.5'
 ```
 
 to your Podfile.
@@ -127,70 +127,6 @@ Objective-C :
 
 ```
 
-### PUBLIC APIs
+# API & USAGE
 
-- Displaying contextual help manually. This method on being invoked returns `true` if the SDK was able to display the contextual help successfully, returns `false` if it fails.
-
-  Swift :
-
-  ```Swift
-  let ctxHelpSuccess = UserIQSDK.sharedInstance().showCtxHelp()
-  ```
-
-  Objective-C :
-
-  ```objc
-  BOOL ctxHelpSuccess = [[UserIQSDK sharedInstance] showCtxHelp];
-  ```
-
-- Displaying the helpcenter manually.
-
-  Swift :
-
-  ```Swift
-  UserIQSDK.sharedInstance().showHelpCentre()
-  ```
-
-  Objective-C:
-
-  ```objc
-  [[UserIQSDK sharedInstance] showHelpCentre];
-  ```
-
-- Disabling fab. When this API is called, it permanently disables the FAB button. All the other FAB settings are overridden.
-
-  Swift :
-
-  ```Swift
-  UserIQSDK.sharedInstance().disableFAB()
-  ```
-
-  Objective-C :
-
-  ```objc
-  [[UserIQSDK sharedInstance] disableFAB];
-  ```
-
-  #### InApp-Notification
-
-  ![](Images/InAppModal.gif)
-
-  #### NPS
-
-  ![](Images/NPSHeader.gif)
-
-  #### StarRating
-
-  ![](Images/RatingFooter.gif)
-
-  #### Walkthrough
-
-  ![](Images/Walkthrough.gif)
-
-  #### Contextual Help
-
-  ![](Images/CtxHelp.gif)
-
-  #### HelpCentre
-
-  ![](Images/Helpcenter.gif)
+For more details on API & usage, please refer to [wiki page](https://github.com/useriq-com/ios-sdk/wiki)

@@ -31,7 +31,7 @@ target 'example' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  pod 'UseriqReactNative', :path => '../node_modules/useriq-react-native'
+  pod 'UseriqReactNative', :path => '../node_modules/@useriq/useriq-react-native'
 
   target 'exampleTests' do
     inherit! :search_paths

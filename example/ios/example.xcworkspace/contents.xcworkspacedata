@@ -5,6 +5,6 @@
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/palkeshjain/Workspace/useriq-react-native/example/ios/example.xcodeproj">
+      location = "group:example.xcodeproj">
    </FileRef>
 </Workspace>

@@ -118,7 +118,7 @@ export class App extends React.Component {
 }
 ```
 
-This will automatically choose the right `api_key` for the appropriate platform & initialize it.
+This will automatically choose the right `api_key` for the appropriate platform & initialize it. An anonymous user is set and SDK is initiated
 
 > Note: The `IOS_API_KEY` & `ANDROID_API_KEY` is available in the [mobile dashboard](https://mobile.useriq.com) under the `App Settings` page.
 
@@ -144,6 +144,13 @@ class LoginComponent extends React.Component {
     })
   }
 }
+```
+
+### 3. Logout
+If a user logs out, the user can be reset to anonymous user just by calling the `logout` API. Make sure this method is called when the user logs out, so that login screen tracking and other information not related to the user does not get linked to the user.
+
+```javascript
+  UserIQ.logOut()
 ```
 
 # API & USAGE

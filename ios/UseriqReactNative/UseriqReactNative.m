@@ -74,5 +74,9 @@ RCT_REMAP_METHOD(showCtxHelp,
     resolver((shown?@"true":@"false"));
 }
 
+RCT_EXPORT_METHOD(logOut) {
+    [[UserIQSDK sharedInstance] logout];
+}
+
 @end
 
