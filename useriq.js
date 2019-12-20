@@ -3,9 +3,6 @@ const child_process = require('child_process');
 
 function main() {
   //Go to project root
-  console.log(`dir name = ${__dirname}`)
-  console.log(`file name = ${__filename}`)
-  console.log(`cwd name = ${process.cwd()}`)
   process.chdir('../../..')
 
   //Check if iOS Folder exists
@@ -16,8 +13,7 @@ function main() {
     //Check if cocoapods is installed
     if (!checkIfPodIsInstalled()) {
       
-      //If not in installed, install cocoapods
-      console.log("Pod is not installed")
+      //If not installed, install cocoapods
       installCocoapods()
     }
 
