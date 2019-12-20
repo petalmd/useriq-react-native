@@ -33,12 +33,6 @@ Or in case you prefer yarn over npm, use the following command
   $ react-native link @useriq/useriq-react-native
   ```
 
-> *Note*:  For `iOS` using `cocoapods`, run:
-
-```bash
-$ cd ios/ && pod install
-```
-
 If you can't or don't want to use the CLI tool, you can also manually link the library using the instructions below
 
 ### Manual linking
