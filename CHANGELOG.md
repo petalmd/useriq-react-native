@@ -3,6 +3,15 @@
 All notable changes in Android SDK are documented here. We adhere to
 [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+### [2.6.2] - 2019-12-20
+
+#### Added
+- Post-install script to automatically install UserIQ framework
+- Updates UserIQ framework to latest version on react-native library update
+
+[iOS Changelog](https://github.com/useriq-com/ios-sdk/blob/master/CHANGELOG.md#262---2019-12-20)
+
+---
 ### [2.6.1] - 2019-12-12
 
 [iOS Changelog](https://github.com/useriq-com/ios-sdk/blob/master/CHANGELOG.md#261---2019-12-12)

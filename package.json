@@ -1,12 +1,13 @@
 {
   "name": "@useriq/useriq-react-native",
   "title": "Useriq React Native",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "React Native wrapper for UserIQ SDK",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node ./useriq.js"
   },
   "repository": {
     "type": "git",
