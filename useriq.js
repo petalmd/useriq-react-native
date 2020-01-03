@@ -13,8 +13,11 @@ function main() {
     //Check if cocoapods is installed
     if (!checkIfPodIsInstalled()) {
       
-      //If not installed, install cocoapods
-      installCocoapods()
+      //If not installed, exit process
+      console.error(
+        `Cocoapods is not installed. Install cocoapods using "sudo gem install cocoapods"`
+      );
+      process.exit();
     }
 
     // Switch to iOS directory
@@ -47,7 +50,13 @@ function main() {
 }
 
 function checkIfPodIsInstalled() {
-  return fs.existsSync('/usr/local/bin/pod')
+  try {
+    child_process.execSync('pod --version')
+    return true
+  } catch (error) {
+    console.error(error)
+    return false
+  }
 }
 
 function installCocoapods() {
@@ -62,7 +71,7 @@ function checkIfPodfilePresent() {
 
 function createPodfile() {
   console.log('pod init')
-  const createOutput = child_process.execSync('/usr/local/bin/pod init')
+  const createOutput = child_process.execSync('pod init')
   console.log(createOutput.toString('utf-8'))
   addUserIQToPodfile()
 }
@@ -81,13 +90,13 @@ function addUserIQToPodfile() {
 
 function installAllPods() {
   console.log('pod install')
-  let installOutput = child_process.execSync('/usr/local/bin/pod install')
+  let installOutput = child_process.execSync('pod install')
   console.log(installOutput.toString('utf-8'))
 }
 
 function updateUserIQPod() {
   console.log('pod update UserIQ')
-  const updateOutput = child_process.execSync('/usr/local/bin/pod update UserIQ')
+  const updateOutput = child_process.execSync('pod update UserIQ')
   console.log(updateOutput.toString('utf-8'))
 }
 
